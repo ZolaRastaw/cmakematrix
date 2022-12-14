@@ -1,16 +1,33 @@
 #include<iostream>
-#include<concepts>
+#include <stdlib.h>
+#include <time.h>
 
-template <typename T>
-requires std:: integral <T>
-T add(T a, T b) {
-    return a + b;
+using namespace std;
+#define row 10
+#define column 10
+
+int main()
+{
+
+	
+	srand(time(NULL));
+
+	int a[row][column], i, j;
+
+	for (i = 0; i < row; ++i)
+	{
+		for (j = 0; j < column; ++j)
+		{
+			a[i][j] = rand()% 10;
+		}
+	}
+	for (i = 0; i < row; ++i)
+	{
+		for (j = 0; j < column; ++j)
+			std::cout << a[i][j] << '\t';
+		std::cout << '\n';
+	}
+
+	cout << "Hello CMake." << endl;
+	return 0;
 }
-
-    int main()
-    {
-        std::cout<<"hello from c++ 20 with cmake"<<std::endl;
-        std::cout<<"the sum is : "<<add(7,5)<<std::endl;
-        return 0;
-        
-            }
